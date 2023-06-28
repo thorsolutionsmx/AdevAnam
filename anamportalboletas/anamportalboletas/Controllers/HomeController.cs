@@ -25,8 +25,11 @@ namespace anamportalboletas.Controllers
 
         public IActionResult Boletas()
         {
+            //mis cambios se deben reflejar en el repositorio
             return View();
         }
+
+        //create function to validate an email
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
