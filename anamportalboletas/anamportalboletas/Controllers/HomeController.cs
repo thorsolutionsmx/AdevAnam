@@ -25,8 +25,17 @@ namespace anamportalboletas.Controllers
 
         public IActionResult Boletas()
         {
+            //mis cambios se deben reflejar en el repositorio
             return View();
         }
+        
+        public IActionResult BoletasImprime()
+        {
+            return View();
+        }
+
+
+        //create function to validate an email
 
         public IActionResult Formulario()
         {
