@@ -27,7 +27,7 @@ namespace WpfXml
         public static void WriteXMLText(string miarch)
         {
             //escribir un txt
-            File.WriteAllText("appsettings.txt", miarch);
+            File.WriteAllText("appsettings.txt", miarch.Replace("\\", "\\\\"));
         }
 
         //leer un xml
@@ -87,10 +87,14 @@ namespace WpfXml
                     //    _lst.Add(p);
                     _lst.AppendLine($"\"{cfg_name}\" : \"{cfg_value}\",");
                 }
-
             }
             _lst.AppendLine("}");
-            return _lst.ToString();
+            string _res = _lst.ToString();
+            if (_res.LastIndexOf(",") > 0)
+           _res =     _res.Remove(_res.LastIndexOf(","), 1);   
+
+
+            return _res;
         }
     }
 
