@@ -31,3 +31,5 @@ Las ramas de cada integrante deben cumplir con el nombre formado de la manera
 Sigue mi proyecto.
 
 Este cambio es con la intención de ver los cambios en readme, como verificados.
+
+Otra cambio ya verificado.
