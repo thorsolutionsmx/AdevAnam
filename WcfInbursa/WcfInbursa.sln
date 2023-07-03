@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfInbursa", "WcfInbursa\WcfInbursa.csproj", "{EFEAB26D-4C4F-4C03-B363-4750BFC830DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFEAB26D-4C4F-4C03-B363-4750BFC830DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFEAB26D-4C4F-4C03-B363-4750BFC830DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFEAB26D-4C4F-4C03-B363-4750BFC830DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFEAB26D-4C4F-4C03-B363-4750BFC830DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08276BFC-36E7-47BD-ACA1-4E85F1156196}
+	EndGlobalSection
+EndGlobal
