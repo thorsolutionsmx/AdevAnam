@@ -66,9 +66,9 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: restaura nuget .net core
-      run: dotnet restore
+      run: dotnet restore ./anamportalboletas/AnamPortalBoletas.csproj
     - name: build  .net core
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build ./anamportalboletas/AnamPortalBoletas.csproj --configuration Release --no-restore
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
