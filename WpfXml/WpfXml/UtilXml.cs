@@ -30,7 +30,14 @@ namespace WpfXml
             File.WriteAllText("appsettings.txt", miarch.Replace("\\", "\\\\"));
         }
 
-        //leer un xml
+        //connect to a service bus in azure
+
+
+       
+
+
+
+
         public static ResultadoJSON ReadXML(string xmlfile)
         {
             XmlReaderSettings settings = new XmlReaderSettings
