@@ -31,6 +31,7 @@ namespace anamportalboletas.Controllers
         
         public IActionResult BoletasImprime()
         {
+            //mis cambios se deben reflejar en el repositorio
             return View();
         }
 
