@@ -5,6 +5,16 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "anamportalboletas", "anamportalboletas\anamportalboletas.csproj", "{BD63ACC1-F86D-4BC7-BD07-FAE87979BD3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anam.BoletasAduanales.1.BoletasPruebasUnitarias", "Anam.BoletasAduanales.1.BoletasPruebasUnitarias\Anam.BoletasAduanales.1.BoletasPruebasUnitarias.csproj", "{58A99345-F93E-4473-A97C-CBC87CAED0BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anam.BoletasAduanales.2.Modelos", "Anam.BoletasAduanales.2.Modelos\Anam.BoletasAduanales.2.Modelos.csproj", "{922ED10B-8D7F-4E48-ACEE-FBA33A265EF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anam.BoletasAduanales.3.LogicaOperaciones", "Anam.BoletasAduanales.3.LogicaOperaciones\Anam.BoletasAduanales.3.LogicaOperaciones.csproj", "{AA3692FE-3E0F-44BC-B55E-94A81682AF5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anam.BoletasAduanales.4.BoletasApi", "Anam.BoletasAduanales.4.BoletasApi\Anam.BoletasAduanales.4.BoletasApi.csproj", "{7BEF2CF7-C22B-4B3E-8B7B-FCDFC37245E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anam.Utils", "Anam.Utils\Anam.Utils.csproj", "{0E38839E-5A1A-4030-8742-573D07FD9D05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{BD63ACC1-F86D-4BC7-BD07-FAE87979BD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD63ACC1-F86D-4BC7-BD07-FAE87979BD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD63ACC1-F86D-4BC7-BD07-FAE87979BD3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58A99345-F93E-4473-A97C-CBC87CAED0BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58A99345-F93E-4473-A97C-CBC87CAED0BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58A99345-F93E-4473-A97C-CBC87CAED0BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58A99345-F93E-4473-A97C-CBC87CAED0BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{922ED10B-8D7F-4E48-ACEE-FBA33A265EF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{922ED10B-8D7F-4E48-ACEE-FBA33A265EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{922ED10B-8D7F-4E48-ACEE-FBA33A265EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{922ED10B-8D7F-4E48-ACEE-FBA33A265EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA3692FE-3E0F-44BC-B55E-94A81682AF5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA3692FE-3E0F-44BC-B55E-94A81682AF5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA3692FE-3E0F-44BC-B55E-94A81682AF5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA3692FE-3E0F-44BC-B55E-94A81682AF5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BEF2CF7-C22B-4B3E-8B7B-FCDFC37245E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BEF2CF7-C22B-4B3E-8B7B-FCDFC37245E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BEF2CF7-C22B-4B3E-8B7B-FCDFC37245E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BEF2CF7-C22B-4B3E-8B7B-FCDFC37245E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E38839E-5A1A-4030-8742-573D07FD9D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E38839E-5A1A-4030-8742-573D07FD9D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E38839E-5A1A-4030-8742-573D07FD9D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E38839E-5A1A-4030-8742-573D07FD9D05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
