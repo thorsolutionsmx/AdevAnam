@@ -5,7 +5,7 @@
     <RootNamespace>Anam.BoletasAduanales._1.BoletasPruebasUnitarias</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-
+	  <!--<RunSettingsFilePath>$(MSBuildProjectDirectory)\minombre.runsettings</RunSettingsFilePath>-->
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>

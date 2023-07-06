@@ -7,6 +7,9 @@ namespace Anam.BoletasAduanales._1.BoletasPruebasUnitarias
     [TestClass]
     public class BoletasAduanalesTest : BoletasAduanalesBaseTest
     {
+
+
+
         [TestMethod]
         [Timeout(3000)]
         public void CalcularIvaBoletaTimeTest()
@@ -30,14 +33,14 @@ namespace Anam.BoletasAduanales._1.BoletasPruebasUnitarias
         {
             //arrange
             decimal _MontoBoleta = (decimal)MontoBoleta;
-            decimal _IvaEsperado = (decimal) IvaEsperado;
-
+            decimal _IvaEsperado = (decimal)IvaEsperado;
+            TestContext?.WriteLine($"Aquí empieza la prueba de {TestContext?.TestName}");
             BoletaAduanalClass _ba = new BoletaAduanalClass();
             //act
             decimal _Resultado = _ba.CalcularIvaBoleta(_Iva, _MontoBoleta);
             //assert
-            Assert.AreEqual(_IvaEsperado,  _Resultado);
-                    Assert.IsTrue(_IvaEsperado == _Resultado);
+            Assert.AreEqual(_IvaEsperado, _Resultado);
+            Assert.IsTrue(_IvaEsperado == _Resultado);
         }
 
         [TestMethod]
@@ -47,7 +50,7 @@ namespace Anam.BoletasAduanales._1.BoletasPruebasUnitarias
             //arrange
             decimal _MontoBoleta = 0.00m;
             decimal _IvaEsperado = 160.00m;
-            BoletaAduanalClass _ba = new  BoletaAduanalClass();
+            BoletaAduanalClass _ba = new BoletaAduanalClass();
             //act
             decimal _Resultado = _ba.CalcularIvaBoleta(_Iva, _MontoBoleta);
             //assert
