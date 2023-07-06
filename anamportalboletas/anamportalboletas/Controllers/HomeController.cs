@@ -31,6 +31,7 @@ namespace anamportalboletas.Controllers
         
         public IActionResult BoletasImprime()
         {
+            //mis cambios se deben reflejar en el repositorio
             return View();
         }
 
@@ -39,6 +40,7 @@ namespace anamportalboletas.Controllers
 
         public IActionResult Formulario()
         {
+            // mis cambios ya van firmados
             return View();
         }
         
