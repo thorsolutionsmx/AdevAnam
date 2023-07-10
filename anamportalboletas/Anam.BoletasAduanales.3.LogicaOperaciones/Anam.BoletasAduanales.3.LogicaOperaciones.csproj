@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Anam.BoletasAduanales.2.Modelos\Anam.BoletasAduanales.2.Modelos.csproj" />
+    <ProjectReference Include="..\Anam.Utils\Anam.Utils.csproj" />
+  </ItemGroup>
+
 </Project>
