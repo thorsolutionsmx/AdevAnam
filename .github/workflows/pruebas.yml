@@ -20,7 +20,7 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Dependencias
-      run: dotnet restore
+      run: dotnet restore ./anamportalboletas/anamportalboletas.sln
 
     - name: Build
       run: dotnet build --configuration Release
