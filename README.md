@@ -41,5 +41,6 @@ Ultimo evento
 las últimas pruebas fueron
 
 
-[![Acción para pruebas .net](https://gist.githubusercontent.com/diaz0703/5dd6c65470a57d6f9fedb6b2255a11b1/raw/211e9d0a649e0321d4ce35271e5613ff7bc5f14d/badge.svg)](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/pruebas.yml)
+[![Acción para pruebas .net](https://gist.githubusercontent.com/diaz0703/5dd6c65470a57d6f9fedb6b2255a11b1/raw/6fc797a122a9287227b22faf60fe1f125b9c1800/badge.svg)](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/pruebas.yml)
+
 
