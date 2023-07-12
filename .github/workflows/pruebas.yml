@@ -79,6 +79,8 @@ jobs:
       uses: andymckay/append-gist-action@1fbfbbce708a39bd45846f0955ed5521f2099c6d
       with:
         token: ${{ secrets.GIST_TOKEN }}
-        gistURL: https://gist.github.com/diaz0703/5dd6c65470a57d6f9fedb6b2255a11b1
+        gistURL: https://gist.githubusercontent.com/diaz0703/5dd6c65470a57d6f9fedb6b2255a11b1
         file: badge.svg
+
+        #https://gist.githubusercontent.com/diaz0703/5dd6c65470a57d6f9fedb6b2255a11b1/raw/badge.svg
 
