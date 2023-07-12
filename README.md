@@ -34,4 +34,6 @@ Este cambio es con la intención de ver los cambios en readme, como verificados.
 
 Otra cambio ya verificado.
 
-ahora si
+Ultimo evento
+
+[![Acción para pruebas .net](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/pruebas.yml/badge.svg)](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/pruebas.yml)
