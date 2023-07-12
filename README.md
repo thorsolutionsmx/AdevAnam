@@ -37,3 +37,9 @@ Otra cambio ya verificado.
 Ultimo evento
 
 [![Acción para pruebas .net](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/pruebas.yml/badge.svg)](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/pruebas.yml)
+
+las últimas pruebas fueron
+
+
+[![Acción para pruebas .net](https://gist.githubusercontent.com/diaz0703/5dd6c65470a57d6f9fedb6b2255a11b1/raw/211e9d0a649e0321d4ce35271e5613ff7bc5f14d/badge.svg)](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/pruebas.yml)
+
