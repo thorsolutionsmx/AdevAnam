@@ -41,4 +41,4 @@ jobs:
       uses: EnricoMi/publish-unit-test-result-action@v2
       if: always()
       with:
-        files: "*/*.trx"
+        files: "/home/runner/work/AdevAnam/AdevAnam/anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/TestResults/test-results.trx"
