@@ -3,7 +3,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+IConfiguration _config = builder.Configuration;
+
+builder.Services.AddHttpClient("ApiProtegida", httpClient =>
+{
+    httpClient.BaseAddress = new Uri(_config.GetValue<string>("ApiAd:urlapi"));
+    httpClient.DefaultRequestHeaders.Add(
+        "x-header-app", "webdemo");
+});
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

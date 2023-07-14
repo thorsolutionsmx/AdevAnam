@@ -62,6 +62,41 @@ namespace Anam.BoletasAduanales._3.LogicaOperaciones
             return _milista;        
         }
 
+        public List<BoletaAduanalForma> GetBoletasAduanalesForma()
+        {
+            List<BoletaAduanalForma> _milista = new List<BoletaAduanalForma>();
+            BoletaAduanalForma _Iva = new BoletaAduanalForma()
+            {
+                aduanaId = "ADTAM00023", aduanaName = "LAREDO TAMAULIPAS", boletaNumber = 7866,
+                fecha = DateTime.Now, iva = 200, monto = 2000
+            };
+            _milista.Add(_Iva);
+
+            _Iva = new BoletaAduanalForma()
+            {
+                aduanaId = "ADVER00012",
+                aduanaName = "VERACRUZ VERACRUZ",
+                boletaNumber = 7867,
+                fecha = DateTime.Now,
+                iva = 2334,
+                monto = 27890
+            };
+            _milista.Add(_Iva);
+
+            _Iva = new BoletaAduanalForma()
+            {
+                aduanaId = "ADTAM00023",
+                aduanaName = "LAREDO TAMAULIPAS",
+                boletaNumber = 7866,
+                fecha = DateTime.Now,
+                iva = 200,
+                monto = 2000
+            };
+            _milista.Add(_Iva);
+
+            return _milista;
+        }
+
 
     }
 }

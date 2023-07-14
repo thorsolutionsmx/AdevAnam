@@ -6,21 +6,21 @@
 <h1>Formulario</h1>
 
 <body>
-    <form method="post">
+    <form method="post" asp-action="LlamarApi">
         <fieldset>            
             <div>
                 <label for="Nombres">Nombres:</label>
-                <input type="text" name="nombres" value="" />
+                <input type="text" name="txtNombre" value="" id="txtNombre"  />
             </div>
             <p></p>
             <div>
                 <label for="Apellidos">Apellidos:</label>
-                <input type="text" name="Apellidos" value="" />
+                <input type="text" name="Apellidos" id="Apellidos" value="" />
             </div>
             <p></p>
             <div>
                 <label for="NumeroEmpleado">Número Empleado</label>
-                <input type="text" name="NumeroEmpleado" value="" />
+                <input type="text" name="NumeroEmpleado" id="NumeroEmpleado" value="" />
             </div>
             <p></p>
             <div>
