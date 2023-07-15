@@ -43,10 +43,10 @@ jobs:
         fail-on-error: false
 
     - name: covertura de código
-      uses: jgillick/test-coverage-reporter@v1.0.13
+      uses: aGallea/tests-coverage-report@v1
       with:
-        coverage-file: coverage/coverage-final.json
-        access-token: ${{ secrets.GIST_TOKEN }}
+        min-coverage-percentage: '90'
+        fail-under-coverage-percentage: 'false'
 
 
 
