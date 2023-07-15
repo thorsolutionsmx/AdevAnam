@@ -134,8 +134,8 @@ namespace Anam.BoletasAduanales._1.BoletasPruebasUnitarias
         {
             //arrange
             decimal _IvaEsperado = 8.00m;
-            BoletasAduanalesImpuestosContoller _ba = new BoletasAduanalesImpuestosContoller();
-            //act
+            BoletasAduanalesImpuestosController _ba = new BoletasAduanalesImpuestosController();
+            //actwseqd _|
             decimal _Resultado = _ba.GetImpuestoBoleta();
             //assert
             Assert.AreEqual(_IvaEsperado, _Resultado);
