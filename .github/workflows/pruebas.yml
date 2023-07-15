@@ -47,7 +47,8 @@ jobs:
       with:
          min-coverage-percentage: '90'
          fail-under-coverage-percentage: 'false'
-         cobertura-path: 'TestResults\**\*.xml'
+         cobertura-path: 'TestResults\*\*.xml'
+
     #- name: covertura de código
     #  uses: jgillick/test-coverage-reporter@v1.0.13
     #  with:
