@@ -42,6 +42,11 @@ jobs:
         reporter: dotnet-trx
         fail-on-error: false
 
+    - uses: jgillick/test-coverage-reporter@v1
+      with:
+        coverage-file: coverage/coverage-final.json
+        access-token: ${{ secrets.GIST_TOKEN }}
+
     #- name: Publish Test Results
     #  uses: EnricoMi/publish-unit-test-result-action@v2
     #  id: test-results
