@@ -34,7 +34,7 @@ jobs:
       shell: pwsh
       run: |
           $TestOutput = dotnet test ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.csproj --logger "trx;LogFileName=test-results.trx" || true --collect "Code Coverage;Format=Xml"
-          $TestReports = $TestOutput | Select-String -pattern '\w*.coverage' | ForEach-Object { $_.Line.Trim() } | Join-String -Separator ';'
+          $TestReports = $TestOutput | Select-String -pattern '\w*.xml' | ForEach-Object { $_.Line.Trim() } | Join-String -Separator ';'
           $TestReports
           echo "rutacoverage = " + $TestReports >> $GITHUB_ENV
 
