@@ -74,6 +74,10 @@ namespace anamportalboletas.Controllers
                     }
                 _Respuesta += "</tBody></table>";
             }
+            else
+            { 
+            _Respuesta = httpResponseMessage.StatusCode.ToString()  + "  " + httpResponseMessage.Content ;
+            }
 
 
 
