@@ -1,5 +1,5 @@
 
-name: Acci髇 para pruebas .net
+name: Acci贸n para pruebas .net
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Descargar c骴igo 
+    - name: Descargar c贸digo 
       uses: actions/checkout@v1
 
     - name: Setup .NET Core
@@ -38,8 +38,8 @@ jobs:
           $TestReports = $TestOutput | Select-String -pattern '\w*.xml' | ForEach-Object { $_.Line.Trim() } | Join-String -Separator ';'
           $TestReports
           #Add-Content -Path $env:GITHUB_ENV -Value "rutacoverage=$TestReports"
-          echo "rutacoverage=$TestReports" | Out-File -FilePath $Env:GITHUB_OUTPUT -Encoding utf8 -Append
-          #echo "rutacoverage=$TestReports" >> $GITHUB_ENV
+          #echo "rutacoverage=$TestReports" | Out-File -FilePath $Env:GITHUB_OUTPUT -Encoding utf8 -Append
+          "rutacoverage=$TestReports" >> $GITHUB_ENV
 
     - name: Test Report
       uses: dorny/test-reporter@v1
@@ -50,14 +50,14 @@ jobs:
         reporter: dotnet-trx
         fail-on-error: false
 
-    - name: covertura de c骴igo
+    - name: covertura de c贸digo
       uses: aGallea/tests-coverage-report@v1
       with:
          min-coverage-percentage: '90'
          fail-under-coverage-percentage: 'false'
          cobertura-path: ${{env.rutacoverage}}
 
-    #- name: covertura de c骴igo
+    #- name: covertura de c贸digo
     #  uses: jgillick/test-coverage-reporter@v1.0.13
     #  with:
     #    coverage-file: 'TestResults/**/*.coverage'
