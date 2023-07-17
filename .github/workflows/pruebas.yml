@@ -46,7 +46,7 @@ jobs:
     - name: Test-coverage
       run: |
           dotnet tool install --global coverlet.console
-          coverlet ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/bin/Release/net6.0/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.dll --target "dotnet" --targetargs "test ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.csproj " --format cobertura 
+          coverlet ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/bin/Release/net6.0/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.dll --target "dotnet" --targetargs "test ./anamportalboletas/anamportalboletas.sln " --format cobertura 
 
     - name: Test Report
       uses: dorny/test-reporter@v1
@@ -68,16 +68,16 @@ jobs:
     #     cobertura-path: coverage.cobertura.xml
 
 
-    - name: Create Test Coverage Badge
-      uses: simon-k/dotnet-code-coverage-badge@v1.0.0
-      id: create_coverage_badge
-      with:
-        label: Unit Test Coverage
-        color: brightgreen
-        path: coverage.cobertura.xml
-        gist-filename: code-coverage.json
-        gist-id: 1234567890abcdef1234567890abcdef
-        gist-auth-token: ${{ secrets.GIST_TOKEN }}
+    #- name: Create Test Coverage Badge
+    #  uses: simon-k/dotnet-code-coverage-badge@v1.0.0
+    #  id: create_coverage_badge
+    #  with:
+    #    label: Unit Test Coverage
+    #    color: brightgreen
+    #    path: coverage.cobertura.xml
+    #    gist-filename: code-coverage.json
+    #    gist-id: 1234567890abcdef1234567890abcdef
+    #    gist-auth-token: ${{ secrets.GIST_TOKEN }}
 
     #- name: covertura de código
     #  uses: jgillick/test-coverage-reporter@v1.0.13
