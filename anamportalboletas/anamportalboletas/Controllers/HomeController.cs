@@ -76,11 +76,8 @@ namespace anamportalboletas.Controllers
             }
             else
             { 
-            _Respuesta = httpResponseMessage.StatusCode.ToString()  + "  " + httpResponseMessage.Content ;
+            _Respuesta = httpResponseMessage.StatusCode.ToString()  + "  " + httpResponseMessage.RequestMessage ;
             }
-
-
-
             ViewBag.Respuesta = _Respuesta;
             return View();
         }

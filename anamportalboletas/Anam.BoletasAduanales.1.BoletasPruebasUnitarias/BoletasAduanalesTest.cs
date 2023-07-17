@@ -90,7 +90,7 @@ namespace Anam.BoletasAduanales._1.BoletasPruebasUnitarias
         [TestMethod]
         [Description("Prueba de calculo de IVA de una boleta aduanal caso correcto")]
         [TestCategory("Impuestos")]
-        [DataRow(2000.00, 150.00)]
+        [DataRow(2000.00, 160.00)]
         [DataRow(1.10, 0.088)]
 //        [DataRow(10001, 1000.1)]
         public void CalcularIvaBoletaSuccessTest(double MontoBoleta, double IvaEsperado)
@@ -161,6 +161,19 @@ namespace Anam.BoletasAduanales._1.BoletasPruebasUnitarias
             Assert.IsTrue(((CatalogoIva)_res[0]).IvaPorcentaje >= 0);
         }
 
+        [TestMethod]
+        [TestCategory("Catalogos")]
+        public void GetBoletasAduanalesFormaSuccessTest()
+        {
+            //arrange
+            BoletasAduanalesImpuestosController _ba = new BoletasAduanalesImpuestosController();
+            //act
+            List<BoletaAduanalForma> _res = _ba.GetBoletasAduanalesForma();
+            //assert
+            Assert.IsTrue(_res.Count > 0);
+            CollectionAssert.AllItemsAreNotNull(_res);
+            CollectionAssert.AllItemsAreInstancesOfType(_res, typeof(BoletaAduanalForma));
+        }
 
 
 

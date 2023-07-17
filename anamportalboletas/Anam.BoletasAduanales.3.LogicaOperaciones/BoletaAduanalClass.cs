@@ -85,12 +85,12 @@ namespace Anam.BoletasAduanales._3.LogicaOperaciones
 
             _Iva = new BoletaAduanalForma()
             {
-                aduanaId = "ADTAM00023",
-                aduanaName = "LAREDO TAMAULIPAS",
-                boletaNumber = 7866,
+                aduanaId = "ADTAM00052",
+                aduanaName = "POSARICA",
+                boletaNumber = 7867,
                 fecha = DateTime.Now,
-                iva = 200,
-                monto = 2000
+                iva = 500,
+                monto = 15000
             };
             _milista.Add(_Iva);
 
