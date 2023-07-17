@@ -33,7 +33,7 @@ jobs:
     - name: Test
       shell: pwsh
       run: |
-          $TestOutput = dotnet test ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.csproj --logger "trx;LogFileName=test-results.trx"  --collect "Code Coverage;Format=opencover"
+          $TestOutput = dotnet test ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.csproj --logger "trx;LogFileName=test-results.trx"  --collect "Code Coverage;Format=Xml"
           $TestOutput
           $TestReports = $TestOutput | Select-String -pattern '\w*.xml' | ForEach-Object { $_.Line.Trim() } | Join-String -Separator ';'
           $TestReports
@@ -55,12 +55,24 @@ jobs:
     - name: Probando la ruta
       run: echo   ${{env.RUTACOVERAGE}}
 
-    - name: covertura de código
-      uses: aGallea/tests-coverage-report@v1
+    #- name: covertura de código
+    #  uses: aGallea/tests-coverage-report@v1
+    #  with:
+    #     min-coverage-percentage: '90'
+    #     fail-under-coverage-percentage: 'false'
+    #     cobertura-path: ${{env.RUTACOVERAGE}}
+
+
+    - name: Create Test Coverage Badge
+      uses: simon-k/dotnet-code-coverage-badge@v1.0.0
+      id: create_coverage_badge
       with:
-         min-coverage-percentage: '90'
-         fail-under-coverage-percentage: 'false'
-         cobertura-path: ${{env.RUTACOVERAGE}}
+        label: Unit Test Coverage
+        color: brightgreen
+        path: ${{env.RUTACOVERAGE}}
+        gist-filename: code-coverage.json
+        gist-id: 1234567890abcdef1234567890abcdef
+        gist-auth-token: ${{ secrets.GIST_TOKEN }}
 
     #- name: covertura de código
     #  uses: jgillick/test-coverage-reporter@v1.0.13
