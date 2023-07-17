@@ -52,6 +52,9 @@ jobs:
         reporter: dotnet-trx
         fail-on-error: false
 
+    - name: Probando la ruta
+      run: echo   ${{env.RUTACOVERAGE}}
+
     - name: covertura de código
       uses: aGallea/tests-coverage-report@v1
       with:
