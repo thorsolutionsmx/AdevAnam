@@ -37,7 +37,7 @@ jobs:
           $TestOutput
           $TestReports = $TestOutput | Select-String -pattern '\w*.xml' | ForEach-Object { $_.Line.Trim() } | Join-String -Separator ';'
           $TestReports
-          Add-Content -Path $env:GITHUB_ENV -Value "name=$TestReports"
+          Add-Content -Path $env:GITHUB_ENV -Value $TestReports
           #echo rutacoverage = $TestReports >> $GITHUB_ENV
 
     - name: Test Report
