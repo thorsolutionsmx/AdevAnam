@@ -46,7 +46,7 @@ jobs:
     - name: Test-coverage
       run: |
           dotnet tool install --global coverlet.console
-          coverlet ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/bin/Release/net6.0/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.dll --target "dotnet" --targetargs "test ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.csproj --no-build" --format opencover
+          coverlet ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/bin/Release/net6.0/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.dll --target "dotnet" --targetargs "test ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.csproj --no-build" --format json
 
     - name: Test Report
       uses: dorny/test-reporter@v1
@@ -60,12 +60,12 @@ jobs:
     - name: Probando la ruta
       run: echo   ${{env.RUTACOVERAGE}}
 
-    - name: covertura de código
-      uses: aGallea/tests-coverage-report@v1
-      with:
-         min-coverage-percentage: '90'
-         fail-under-coverage-percentage: 'false'
-         cobertura-path: coverage.opencover.xml
+    #- name: covertura de código
+    #  uses: aGallea/tests-coverage-report@v1
+    #  with:
+    #     min-coverage-percentage: '90'
+    #     fail-under-coverage-percentage: 'false'
+    #     cobertura-path: coverage.opencover.xml
 
 
     #- name: Create Test Coverage Badge
@@ -79,11 +79,11 @@ jobs:
     #    gist-id: 1234567890abcdef1234567890abcdef
     #    gist-auth-token: ${{ secrets.GIST_TOKEN }}
 
-    #- name: covertura de código
-    #  uses: jgillick/test-coverage-reporter@v1.0.13
-    #  with:
-    #    coverage-file: ${{env.RUTACOVERAGE}}
-    #    access-token: ${{ secrets.GIST_TOKEN }}
+    - name: covertura de código
+      uses: jgillick/test-coverage-reporter@v1.0.13
+      with:
+        coverage-file: coverage.opencover.json
+        access-token: ${{ secrets.GIST_TOKEN }}
 
 
     #- name: Publish Test Results
