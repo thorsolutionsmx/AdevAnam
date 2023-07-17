@@ -65,7 +65,7 @@ jobs:
       with:
          min-coverage-percentage: '90'
          fail-under-coverage-percentage: 'false'
-         cobertura-path: coverage.opencover.xml
+         cobertura-path: coverage.cobertura.xml
 
 
     #- name: Create Test Coverage Badge
