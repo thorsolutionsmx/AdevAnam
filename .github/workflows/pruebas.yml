@@ -43,6 +43,11 @@ jobs:
           #"rutacoverage=$TestReports" >> $Env:GITHUB_ENV
           Write-Host $Env:RUTACOVERAGE
 
+    - name: Test-coverage
+      run: |
+          dotnet tool install --global coverlet.console
+          coverlet ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/bin/debug/net6.0/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.dll --target "dotnet" --targetargs "test Anam.BoletasAduanales.1.BoletasPruebasUnitarias.csproj --no-build"
+
     - name: Test Report
       uses: dorny/test-reporter@v1
       if: always()
