@@ -5,10 +5,19 @@ on :
       NOMBRE_TIPO:
         required: true
         type: string
+    outputs:
+      PARAMSAL:
+        description: "Probando las salidas"
+        value: ${{ jobs.reusar_este.outputs.lavarsalida }}
 jobs:
   reusar_este:
     runs-on : ubuntu-latest
+    outputs:
+      lavarsalida: ${{ steps.unicopaso.outputs.varengit }}
     environment: production
     steps : 
     - name : etiquetar
-      run : echo "Esto es desde la rellamada al action $GITHUB_WORKFLOW en el job $GITHUB_JOB y la rama $GITHUB_REF_NAME"
+      id: unicopaso
+      run : |
+        echo "Esto es desde la rellamada al action $GITHUB_WORKFLOW en el job $GITHUB_JOB y la rama $GITHUB_REF_NAME"
+        echo "varengit=amarillo" >> $GITHUB_OUTPUT
