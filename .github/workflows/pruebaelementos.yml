@@ -32,4 +32,4 @@ jobs:
           First_Name: Lara
           DAY_OF_WEEK: Sunday
   tercerpaso:
-    uses: ./reusar.yml@accinespruebas
+    uses: ../.github/workflows/reusar.yml@accinespruebas
