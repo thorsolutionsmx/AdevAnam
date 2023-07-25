@@ -1,0 +1,27 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: prueba codigo de mi sitio boletas aduanales
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  compilar:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name : bajar codigo 
+      uses: actions/checkout@v3
+    - name: Instalar .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    - name: Restaurar dependencias
+      run: dotnet restore
+    - name: Compilar
+      run: dotnet build --no-restore ./anamportalboletas/anamportalboletas.sln
+    - name: Test
+      run: dotnet test ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.csproj  --no-build --verbosity normal 
