@@ -31,5 +31,8 @@ jobs:
         env:
           First_Name: Lara
           DAY_OF_WEEK: Sunday
+  
   tercerpaso:
-    uses: diaz0703/AdevAnam/.github/workflows/reusar.yml@accinespruebas
+    uses: thorsolutionsmx/AdevAnam/.github/workflows/reusar.yml@accinespruebas
+    with:
+      NOMBRE_TIPO = MIVALOR
