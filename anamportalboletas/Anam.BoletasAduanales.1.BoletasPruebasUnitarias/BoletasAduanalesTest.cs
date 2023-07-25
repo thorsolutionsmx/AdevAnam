@@ -91,7 +91,7 @@ namespace Anam.BoletasAduanales._1.BoletasPruebasUnitarias
         [Description("Prueba de calculo de IVA de una boleta aduanal caso correcto")]
         [TestCategory("Impuestos")]
         [DataRow(2000.00, 160.00)]
-        [DataRow(1.10, 1.088)]
+        [DataRow(1.10, 0.088)]
 //        [DataRow(10001, 1000.1)]
         public void CalcularIvaBoletaSuccessTest(double MontoBoleta, double IvaEsperado)
         {
