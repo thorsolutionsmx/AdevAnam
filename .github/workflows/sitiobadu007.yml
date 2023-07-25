@@ -1,4 +1,4 @@
-name: Build and deploy .NET Core application to Web App sitiobadu007
+name: Desplegar boletas aduanales
 on:
   push:
     branches:
@@ -13,7 +13,8 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: descarga el código
+      uses: actions/checkout@v3
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v3
       with:
@@ -24,7 +25,7 @@ jobs:
       run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-restore
     - name: Test
       run: dotnet test "${{ env.WORKING_DIRECTORY }}" --no-build
-    - name: Publish
+    - name: Publicar en azure
       run: dotnet publish "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-build --output "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
     - name: Publish Artifacts
       uses: actions/upload-artifact@v3
