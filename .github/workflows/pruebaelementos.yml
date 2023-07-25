@@ -16,7 +16,7 @@ jobs:
         run: |
           echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
           echo "$GITHUB_ACTION. Corriendo desde $GITHUB_ACTOR !"
-          core.error('Missing semicolon', {file: 'app.js', startLine: 1})
+          echo "::error file=app.js,line=1::Missing semicolon"
 
         env:
           First_Name: Mona
