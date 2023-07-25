@@ -94,6 +94,17 @@ namespace Anam.BoletasAduanales._3.LogicaOperaciones
             };
             _milista.Add(_Iva);
 
+            _Iva = new BoletaAduanalForma()
+            {
+                aduanaId = "ADTAZ00027",
+                aduanaName = "AZURE",
+                boletaNumber = 7899,
+                fecha = DateTime.Now,
+                iva = 1200,
+                monto = 32000
+            };
+            _milista.Add(_Iva);
+
             return _milista;
         }
 
