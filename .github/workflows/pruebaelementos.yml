@@ -13,7 +13,9 @@ jobs:
       Greeting: Hello
     steps:
       - name: "Say Hello Mona it's Monday"
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        run: |
+          echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+          echo "$GITHUB_ACTION. Corriendo desde $GITHUB_ACTOR !"
         env:
           First_Name: Mona
   otro_saludo:
@@ -24,4 +26,5 @@ jobs:
       - name: "Say Hello Mona it's Monday"
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
         env:
-          First_Name: Mona
+          First_Name: Lara
+          DAY_OF_WEEK: Sunday
