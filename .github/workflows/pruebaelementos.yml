@@ -35,4 +35,4 @@ jobs:
   tercerpaso:
     uses: ./.github/workflows/reusar.yml
     with:
-      NOMBRE_TIPO = "MI VALOR"
+      NOMBRE_TIPO : "MI VALOR"
