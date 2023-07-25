@@ -100,12 +100,12 @@ namespace Anam.BoletasAduanales._1.BoletasPruebasUnitarias
             decimal _IvaEsperado = (decimal)IvaEsperado;
             BoletaAduanalClass _ba = new BoletaAduanalClass();
             //act
-            TestContext?.WriteLine($"{DateTime.Now.ToString("yyyyMMddHHmmss")} Comienza la ejecuci髇 de la funci髇 {TestContext?.TestName}");
+            TestContext?.WriteLine($"{DateTime.Now.ToString("yyyyMMddHHmmss")} Comienza la ejecuci贸n de la funci贸n {TestContext?.TestName}");
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             decimal _Resultado = _ba.CalcularIvaBoleta(_Iva, _MontoBoleta);
             stopwatch.Stop();
-            TestContext?.WriteLine($"{DateTime.Now.ToString("yyyyMMddHHmmss")} Termina la ejecuci髇 de la funci髇 {TestContext?.TestName} tiempo {stopwatch.Elapsed.TotalMilliseconds.ToString()}");
+            TestContext?.WriteLine($"{DateTime.Now.ToString("yyyyMMddHHmmss")} Termina la ejecuci贸n de la funci贸n {TestContext?.TestName} tiempo {stopwatch.Elapsed.TotalMilliseconds.ToString()}");
 
 
             //assert
@@ -128,7 +128,7 @@ namespace Anam.BoletasAduanales._1.BoletasPruebasUnitarias
         }
 
         [TestMethod]
-        [Owner("Ra鷏 Cisneros")]
+        [Owner("Ra煤l Cisneros")]
         [Description("Prueba de calculo de IVA de una boleta aduanal en la api caso correcto")]
         public void CalcularIvaBoletaApiSuccessTest()
         {
