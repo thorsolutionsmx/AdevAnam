@@ -1,4 +1,4 @@
-name: Greeting on variable day
+name: saludos
 
 on:
   workflow_dispatch
