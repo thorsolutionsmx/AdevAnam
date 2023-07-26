@@ -27,15 +27,25 @@ jobs:
       
 
       
-    - uses: sufyanadam/replace-placeholders@v3
+#    - uses: sufyanadam/replace-placeholders@v3
+ #     with:
+  #      placeholders: |
+   #       {
+    #        "<dbname>": "${{ vars.DATABASE_NAME }}"
+     #     }
+      #  filename-pattern: 'appsettings.Development.json'
+       # search-directory: ${{ env.WORKING_DIRECTORY }}/anamportalboletas
+
+
+    - uses: cschleiden/replace-tokens@v1.2
       with:
-        placeholders: |
-          {
-            "<dbname>": "${{ vars.DATABASE_NAME }}"
-          }
-        filename-pattern: 'appsettings.Development.json'
-        search-directory: ${{ env.WORKING_DIRECTORY }}/anamportalboletas
-    
+        tokenPrefix: '<'
+        tokenSuffix: '>'
+        files: '${{ env.WORKING_DIRECTORY }}/anamportalboletas/appsettings.Development.json'
+      env:
+        dbname: ${{ vars.DATABASE_NAME }}
+
+
     
     - name: Build
       run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-restore
