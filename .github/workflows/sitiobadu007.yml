@@ -3,6 +3,8 @@ on:
   push:
     branches:
     - accionespruebas
+  workflow_dispatch:
+    
 env:
   AZURE_WEBAPP_NAME: sitiobadu007
   AZURE_WEBAPP_PACKAGE_PATH: anamportalboletas\published
@@ -11,9 +13,10 @@ env:
   WORKING_DIRECTORY: anamportalboletas
 jobs:
   build:
+    environment: Development
     runs-on: windows-latest
     steps:
-    - name: descarga el código
+    - name: descarga el cÃ³digo
       uses: actions/checkout@v3
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v3
@@ -21,6 +24,19 @@ jobs:
         dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
     - name: Restore
       run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
+      
+
+      
+    - uses: sufyanadam/replace-placeholders@v3
+      with:
+        placeholders: |
+          {
+            "<dbname>": ${{ vars.DATABASE_NAME }}
+          }
+        filename-pattern: 'appsettings.$github.environment.json'
+        search-directory: ${{ env.WORKING_DIRECTORY }}/anamportalboletas
+    
+    
     - name: Build
       run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-restore
     - name: Test
