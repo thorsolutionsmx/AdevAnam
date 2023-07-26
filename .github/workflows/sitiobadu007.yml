@@ -50,7 +50,35 @@ jobs:
       with:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-  deploy:
+  deploy_desarrollo:
+    runs-on: windows-latest
+    needs: build
+    environment: Development
+    steps:
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v3
+      with:
+        name: webapp
+        path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        
+    - name: Reemplazo de los valores
+      uses: cschleiden/replace-tokens@v1.2
+      with:
+        tokenPrefix: '<'
+        tokenSuffix: '>'
+        files: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/appsettings.json'
+      env:
+        dbname: ${{ vars.DATABASE_NAME }}
+
+        
+    - name: Deploy to Azure WebApp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.sitiobadu007_BCBA }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+
+  deploy_produccion:
     runs-on: windows-latest
     needs: build
     environment: production
