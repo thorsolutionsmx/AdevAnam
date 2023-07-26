@@ -31,7 +31,7 @@ jobs:
       with:
         placeholders: |
           {
-            "<dbname>": ${{ vars.DATABASE_NAME }}
+            "<dbname>": "${{ vars.DATABASE_NAME }}"
           }
         filename-pattern: 'appsettings.$github.environment.json'
         search-directory: ${{ env.WORKING_DIRECTORY }}/anamportalboletas
