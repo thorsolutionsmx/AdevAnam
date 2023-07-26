@@ -1,0 +1,133 @@
+
+name: Acción para pruebas .net
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  pull-requests: write
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Descargar código 
+      uses: actions/checkout@v1
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Dependencias
+      run: dotnet restore ./anamportalboletas/anamportalboletas.sln
+
+    - name: Build
+      run: dotnet build ./anamportalboletas/anamportalboletas.sln --configuration Release
+
+    - name: Test
+      shell: pwsh
+      run: |
+          $TestOutput = dotnet test ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.csproj --logger "trx;LogFileName=test-results.trx"  --collect "Code Coverage;Format=Xml"
+          $TestOutput
+          $TestReports = $TestOutput | Select-String -pattern '\w*.xml' | ForEach-Object { $_.Line.Trim() } | Join-String -Separator ';'
+          $TestReports
+          Write-Host $Env:GITHUB_REF
+          #Add-Content -Path $env:GITHUB_ENV -Value "rutacoverage=$TestReports"
+          echo "RUTACOVERAGE=$TestReports" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf8 -Append
+          #"rutacoverage=$TestReports" >> $Env:GITHUB_ENV
+          Write-Host $Env:RUTACOVERAGE
+
+    - name: Test-coverage
+      run: |
+          dotnet tool install --global coverlet.console
+          coverlet ./anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/bin/Release/net6.0/Anam.BoletasAduanales.1.BoletasPruebasUnitarias.dll --target "dotnet" --targetargs "test ./anamportalboletas/anamportalboletas.sln " --format cobertura 
+
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: DotNET Tests
+        path: "/home/runner/work/AdevAnam/AdevAnam/anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/TestResults/test-results.trx"                            
+        reporter: dotnet-trx
+        fail-on-error: false
+
+    - name: Probando la ruta
+      run: echo   ${{env.RUTACOVERAGE}}
+
+    #- name: covertura de código
+    #  uses: aGallea/tests-coverage-report@v1
+    #  with:
+    #     min-coverage-percentage: '90'
+    #     fail-under-coverage-percentage: 'false'
+    #     cobertura-path: coverage.cobertura.xml
+
+
+    #- name: Create Test Coverage Badge
+    #  uses: simon-k/dotnet-code-coverage-badge@v1.0.0
+    #  id: create_coverage_badge
+    #  with:
+    #    label: Unit Test Coverage
+    #    color: brightgreen
+    #    path: coverage.cobertura.xml
+    #    gist-filename: code-coverage.json
+    #    gist-id: 1234567890abcdef1234567890abcdef
+    #    gist-auth-token: ${{ secrets.GIST_TOKEN }}
+
+    #- name: covertura de código
+    #  uses: jgillick/test-coverage-reporter@v1.0.13
+    #  with:
+    #    coverage-file: coverage.json
+    #    access-token: ${{ secrets.GIST_TOKEN }}
+
+
+    #- name: Publish Test Results
+    #  uses: EnricoMi/publish-unit-test-result-action@v2
+    #  id: test-results
+    #  if: always()
+    #  with:
+    #    files: "/home/runner/work/AdevAnam/AdevAnam/anamportalboletas/Anam.BoletasAduanales.1.BoletasPruebasUnitarias/TestResults/test-results.trx"
+
+    #- name: poner un badge color
+    #  shell: bash
+    #  run: |
+    #     case ${{ fromJSON( steps.test-results.outputs.json ).conclusion }} in
+    #      success)
+    #        echo "BADGE_COLOR=31c653" >> $GITHUB_ENV
+    #        ;;
+    #      failure)
+    #        echo "BADGE_COLOR=800000" >> $GITHUB_ENV
+    #        ;;
+    #      neutral)
+    #        echo "BADGE_COLOR=696969" >> $GITHUB_ENV
+    #        ;;
+    #     esac
+
+    #- name: Create badge
+    #  uses: emibcn/badge-action@d6f51ff11b5c3382b3b88689ae2d6db22d9737d1
+    #  with:
+    #    label: Tests
+    #    status: '${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.tests }} tests, ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs }} runs: ${{ fromJSON( steps.test-results.outputs.json ).conclusion }}'
+    #    color: ${{ env.BADGE_COLOR }}
+    #    path: badge.svg
+
+    #- name: Upload badge to Gist
+    #  # Upload only for master branch
+    #  if: >
+    #    github.event_name == 'workflow_run' && github.event.workflow_run.head_branch == 'accionespruebas' ||
+    #    github.event_name != 'workflow_run' && github.ref == 'refs/heads/accionespruebas'
+    #  uses: andymckay/append-gist-action@1fbfbbce708a39bd45846f0955ed5521f2099c6d
+    #  with:
+    #    token: ${{ secrets.GIST_TOKEN }}
+    #    gistURL: https://gist.github.com/diaz0703/5dd6c65470a57d6f9fedb6b2255a11b1
+    #    file: badge.svg
+    #- name: imprime valores
+    #  run: echo ${{ env.BADGE_COLOR }}
+
+    #    #https://gist.github.com/diaz0703/5dd6c65470a57d6f9fedb6b2255a11b1/raw/badge.svg
+

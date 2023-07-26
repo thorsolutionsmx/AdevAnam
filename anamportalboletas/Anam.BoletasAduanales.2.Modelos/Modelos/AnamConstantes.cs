@@ -18,6 +18,14 @@ namespace Anam.BoletasAduanales._2.Modelos.Modelos
         public class ApiBoletas
         {
             public const string RutaImagenes = "RutaImagenes";
+            public class Acciones
+            {
+                public const string GetBoletasAduanalesForma = "BoletasAduanalesImpuestos/GetBoletasAduanalesForma";
+            }
+        }
+        public class SitioBoletas
+        {
+            public const string ApiProtegida = "ApiProtegida";
         }
     }
 }

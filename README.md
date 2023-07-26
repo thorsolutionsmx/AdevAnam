@@ -40,3 +40,14 @@ Ultimo despliegue
 
 [![Desplegar boletas aduanales](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/sitiobadu007.yml/badge.svg)](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/sitiobadu007.yml)
 
+
+Ultimo evento
+
+[![Acción para pruebas .net](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/pruebas.yml/badge.svg)](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/pruebas.yml)
+
+las últimas pruebas fueron
+
+
+[![Acción para pruebas .net](https://gist.githubusercontent.com/diaz0703/5dd6c65470a57d6f9fedb6b2255a11b1/raw/6fc797a122a9287227b22faf60fe1f125b9c1800/badge.svg)](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/pruebas.yml)
+
+
