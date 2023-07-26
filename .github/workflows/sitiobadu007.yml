@@ -41,7 +41,7 @@ jobs:
       with:
         tokenPrefix: '<'
         tokenSuffix: '>'
-        files: '${{ env.WORKING_DIRECTORY }}/anamportalboletas/appsettings.Development.json'
+        files: '${{ env.WORKING_DIRECTORY }}/anamportalboletas/appsettings.json'
       env:
         dbname: ${{ vars.DATABASE_NAME }}
 
