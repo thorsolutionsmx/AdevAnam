@@ -34,6 +34,13 @@ Este cambio es con la intención de ver los cambios en readme, como verificados.
 
 Otra cambio ya verificado.
 
+ahora si
+
+Ultimo despliegue
+
+[![Desplegar boletas aduanales](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/sitiobadu007.yml/badge.svg)](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/sitiobadu007.yml)
+
+
 Ultimo evento
 
 [![Acción para pruebas .net](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/pruebas.yml/badge.svg)](https://github.com/thorsolutionsmx/AdevAnam/actions/workflows/pruebas.yml)
