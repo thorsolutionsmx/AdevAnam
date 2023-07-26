@@ -27,12 +27,16 @@ jobs:
       
 
       
-    - name: edit connection string
-      uses: benday-inc/edit-dbconnstr-in-appsettings@v1.3
+    - uses: sufyanadam/replace-placeholders@v3
       with:
-        pathtosettingsfile: '${{ env.WORKING_DIRECTORY }}/anamportalboletas/appsettings.json'
-        name: "key"
-        connectionstring: ${{ env.DATABASE_NAME }}
+        placeholders: |
+          {
+            "<dbname>": ${{ vars.DATABASE_NAME }}
+          }
+        filename-pattern: 'appsettings.$github.environment.json'
+        search-directory: ${{ env.WORKING_DIRECTORY }}/anamportalboletas
+    
+    
     - name: Build
       run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-restore
     - name: Test
