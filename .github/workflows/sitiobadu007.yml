@@ -33,7 +33,7 @@ jobs:
           {
             "<dbname>": "${{ vars.DATABASE_NAME }}"
           }
-        filename-pattern: 'appsettings.${{ github.ref }}.json'
+        filename-pattern: 'appsettings.Development.json'
         search-directory: ${{ env.WORKING_DIRECTORY }}/anamportalboletas
     
     
