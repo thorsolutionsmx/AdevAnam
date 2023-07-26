@@ -4,7 +4,9 @@ on:
     branches:
     - accionespruebas
   workflow_dispatch:
-    
+permissions:
+  read-all    
+  write-all
 env:
   AZURE_WEBAPP_NAME: sitiobadu007
   AZURE_WEBAPP_PACKAGE_PATH: anamportalboletas\published
