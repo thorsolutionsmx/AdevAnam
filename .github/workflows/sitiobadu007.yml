@@ -24,8 +24,11 @@ jobs:
         dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
     - name: Restore
       run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
+      
+
+      
     - name: edit connection string
-      uses: benday-inc/edit-dbconnstr-in-appsettings@main
+      uses: benday-inc/edit-dbconnstr-in-appsettings@v1.3
       with:
         pathtosettingsfile: '${{ env.WORKING_DIRECTORY }}/anamportalboletas/appsettings.json'
         name: "key"
