@@ -1,4 +1,4 @@
-name: Build and deploy .NET Core application to Web App sitiobadu007
+name: Compila y despliega el codigo del sitio
 on:
   push:
     branches:
@@ -10,11 +10,12 @@ env:
   DOTNET_CORE_VERSION: 6.0.x
   WORKING_DIRECTORY: anamportalboletas
 jobs:
-  build:
+  Compilar:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET SDK
+    - name: descargamos el código
+      uses: actions/checkout@v3
+    - name: instalamos net core
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
@@ -33,7 +34,7 @@ jobs:
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
   deploy:
     runs-on: windows-latest
-    needs: build
+    needs: Compilar
     steps:
     - name: Download artifact from build job
       uses: actions/download-artifact@v3
