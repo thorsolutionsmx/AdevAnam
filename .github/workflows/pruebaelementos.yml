@@ -1,0 +1,49 @@
+name: saludos
+
+on:
+  push:
+
+env:
+  DAY_OF_WEEK: Monday
+
+jobs:
+  greeting_job:
+    runs-on: ubuntu-latest
+    env:
+      Greeting: Hello
+    steps:
+      - name: "Say Hello Mona it's Monday"
+        run: |
+          echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+          echo "$GITHUB_ACTION. Corriendo desde $GITHUB_ACTOR !"
+          echo "::error title=error inducido,file=app.js,line=1::Missing semicolon"
+
+        env:
+          First_Name: Mona
+  otro_saludo:
+    runs-on: ubuntu-latest
+    needs: greeting_job
+    env:
+      Greeting: "nada que"
+    steps:
+      - name: "Say Hello Mona it's Monday"
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        env:
+          First_Name: Lara
+          DAY_OF_WEEK: Sunday
+  
+  tercerpaso:
+    uses: ./.github/workflows/reusar.yml
+    with:
+      NOMBRE_TIPO : "MI VALOR"
+  
+  cuartopaso:
+    runs-on: ubuntu-latest
+    needs: tercerpaso
+    steps:
+      - name: paso para imprimir salida
+        run: |
+          echo "mi mensaje con la salida"
+          echo ${{ needs.tercerpaso.outputs.PARAMSAL }}
+          echo "Veamos en un texto ${{ needs.tercerpaso.outputs.PARAMSAL }}"
+          echo "Veamos en un texto $needs.tercerpaso.outputs.PARAMSAL"
