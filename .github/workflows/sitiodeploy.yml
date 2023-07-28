@@ -4,7 +4,6 @@ on:
     branches:
     - caracteristica458formularioboletas
 env:
-  AZURE_WEBAPP_NAME: sitiobadu007
   AZURE_WEBAPP_PACKAGE_PATH: anamportalboletas\published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
@@ -32,10 +31,35 @@ jobs:
       with:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-  desplegarazure:
+  desplegarpruebasazure:
+    environment: pruebas
+    env:
+      AZURE_WEBAPP_NAME: sitiopruebasba9
     runs-on: windows-latest
     needs: Compilar
     steps:
+    - name: comprobando ambiente
+      run: echo "Trabajando en ${{vars.NOMBRE_ENTORNO}}"
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v3
+      with:
+        name: webapp
+        path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+    - name: Deploy to Azure WebApp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.sitiobadu007_7F18 }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+  desplegarprodazure:
+    environment: produccion
+    env:
+      AZURE_WEBAPP_NAME: sitiobadu007
+    runs-on: windows-latest
+    needs: Compilar
+    steps:
+    - name: comprobando ambiente
+      run: echo "Trabajando en ${{vars.NOMBRE_ENTORNO}}"
     - name: Download artifact from build job
       uses: actions/download-artifact@v3
       with:
