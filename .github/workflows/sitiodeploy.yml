@@ -45,6 +45,17 @@ jobs:
       with:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+
+    - name: Sustituye valores
+      uses: cschleiden/replace-tokens@v1
+      with:
+        tokenPrefix: '<'
+        tokenSuffix: '>'
+        files: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/appsettings.json'
+      env:
+        BASE_DATOS: ${{vars.BASE_DATOS}}
+
+
     - name: Deploy to Azure WebApp
       uses: azure/webapps-deploy@v2
       with:
@@ -65,6 +76,16 @@ jobs:
       with:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+
+    - name: Sustituye valores
+      uses: cschleiden/replace-tokens@v1
+      with:
+        tokenPrefix: '<'
+        tokenSuffix: '>'
+        files: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/appsettings.json'
+      env:
+        BASE_DATOS: ${{vars.BASE_DATOS}}
+
     - name: Deploy to Azure WebApp
       uses: azure/webapps-deploy@v2
       with:
