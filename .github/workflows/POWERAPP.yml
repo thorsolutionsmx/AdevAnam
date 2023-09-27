@@ -18,7 +18,7 @@ jobs:
         environment-url: 'https://org08653f58.crm.dynamics.com'
         user-name: 'fdiaz@thorsolutions365.onmicrosoft.com'
         password-secret: ${{ secrets.PPPASSWORD }}
-        solution-name: teamstrial
+        solution-name: 'teamstrial'
         solution-output-file: 'aSolution1.zip'
         working-directory: 'out'
 
